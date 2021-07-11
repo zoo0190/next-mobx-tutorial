@@ -1,16 +1,20 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import store from '../../store';
-import { autorun } from 'mobx';
+import { autorun, runInAction } from 'mobx';
 
 const Count: React.FC = observer(() => {
   const { countClass, countObject, doubleClassAuto, doubleObject } = store;
   autorun(() => {
-    if (doubleObject.double) return console.log('Double' + doubleObject.double);
-    if (doubleObject.double === 8) {
-      console.log('만약 value가 8이라면 0으로 초기화');
-      doubleObject.value = 0;
-    }
+    runInAction(() => {
+      if (doubleObject.double === 8) {
+        console.log('만약 value가 8이라면 0으로 초기화');
+        doubleObject.value = 0;
+      }
+    });
+
+    if (doubleObject.double)
+      console.log('Double' + doubleObject.double + doubleObject.value);
   });
 
   return (
