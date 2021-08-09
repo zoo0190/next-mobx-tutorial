@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "gray-matter": "^4.0.3",
     "mobx": "^6.3.2",
     "mobx-react": "^7.2.0",

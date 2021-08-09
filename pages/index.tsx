@@ -1,15 +1,25 @@
-import { getSortedPostsData } from '../lib/posts';
-import Layout from '../components/layout';
+import Link from 'next/link';
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
+function Home() {
+  return (
+    <ul>
+      <li>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/count">
+          <a>mobx count</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="material-ui">
+          <a>material-ui test</a>
+        </Link>
+      </li>
+    </ul>
+  );
 }
 
-export default function Home() {
-  return <div>hi</div>;
-}
+export default Home;
